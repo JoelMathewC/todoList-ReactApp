@@ -1,13 +1,21 @@
-import {Button} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Error404 from './components/Error404';
 
 function App() {
   return (
-    <div>
-      <h1>ToDoList</h1>
-      <h2 className="display-1">Hello</h2>
-      <Button>Test Button</Button>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar/>
+        <div className="content">
+          <Switch>
+            <Route exact path="/"><Home/></Route>
+            <Route path="*"><Home/><Error404/></Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 
