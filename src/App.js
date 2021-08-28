@@ -11,7 +11,7 @@ function App() {
         <div className="content">
           <Switch>
             <Route exact path="/"><Home/></Route>
-            <Route path="*"><Home/><Error404/></Route>
+            <Route path="*"><Error404/></Route>
           </Switch>
         </div>
       </div>
