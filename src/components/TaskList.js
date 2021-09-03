@@ -39,7 +39,7 @@ const TaskList = ({tasks}) => {
                                             <Button variant="outline-primary">Mark Completed</Button> 
                                         </Col>
                                         <Col xs="auto">
-                                            <Button variant="outline-secondary">Edit Task</Button>
+                                            <Button variant="outline-secondary" href={`\\tasks\\edit\\${task.id}`}>Edit Task</Button>
                                         </Col>  
                                     </Row>
                                 </Container>

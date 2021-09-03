@@ -17,6 +17,13 @@
       "body": "cdshucdhsacj",
       "completed": false,
       "id": 3
+    },
+    {
+      "title": "New tasks",
+      "body": "Woohoo",
+      "completed": false,
+      "starred": false,
+      "id": 4
     }
   ]
 }

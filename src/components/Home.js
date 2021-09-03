@@ -29,7 +29,7 @@ const Home = () => {
                             <ToggleButton id="tbg-check-1" value={1}>
                                 Pending
                             </ToggleButton>
-                            <ToggleButton id="tbg-check-2" value={2}>
+                            <ToggleButton id="tbg-check-2" value={2} variant={'outline-primary'}>
                                 Completed
                             </ToggleButton>
                         </ToggleButtonGroup>
@@ -37,7 +37,7 @@ const Home = () => {
                     </Col>
                     <Col xs={4}>
                         <div className="text-end">
-                        <Button variant="outline-primary">+ Add Task</Button>
+                            <Button variant="outline-primary" href="/create">+ Add Task</Button>
                         </div>
                     </Col>
                 </Row>
@@ -57,8 +57,3 @@ const Home = () => {
  
 export default Home;
 
-{/* <Link to="/create">Add Task</Link> */}
-
-// <div className="pb-3">
-        //     <Button variant="outline-primary">+ Add Task</Button>
-        // </div>
