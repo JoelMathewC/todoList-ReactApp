@@ -3,15 +3,14 @@ import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import FormCheck from 'react-bootstrap/FormCheck';
 import Button from 'react-bootstrap/Button';
+import Badge from 'react-bootstrap/Badge';
+
 
 
 const TaskList = ({tasks}) => {
     return ( 
-        <Container>
-            <Row className="justify-content-sm-center">
-            <Col xs={8}>
+        
             
                 <Accordion defaultActiveKey="0">
                 {
@@ -20,7 +19,10 @@ const TaskList = ({tasks}) => {
                            
                                     
                                     <Accordion.Header>
-                                        {task.title}
+                                        <div className="pe-4">
+                                            <Badge pill bg="light" text="dark">{task.id}</Badge>
+                                        </div>
+                                            {task.title}
                                     </Accordion.Header>
                              
                             
@@ -46,9 +48,7 @@ const TaskList = ({tasks}) => {
                     ))
                 }
                 </Accordion>
-            </Col>
-            </Row>
-        </Container>
+            
      );
 }
  
