@@ -4,21 +4,18 @@
       "id": 1,
       "title": "Study GRE",
       "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, hic aspernatur! Rem facilis consequuntur doloribus, recusandae unde dolore nobis quibusdam beatae molestiae qui quia ipsam porro numquam perferendis consequatur ex?",
-      "completed": false,
-      "starred": true
+      "completed": false
     },
     {
       "title": "hello",
       "body": "Woah123",
       "completed": false,
-      "starred": false,
       "id": 2
     },
     {
       "title": "jfvdkj",
       "body": "cdshucdhsacj",
       "completed": false,
-      "starred": false,
       "id": 3
     }
   ]
