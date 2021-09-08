@@ -11,6 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import Spinner from 'react-bootstrap/Spinner';
 
 
 
@@ -29,10 +30,7 @@ const Home = () => {
     
     return ( 
         <div>
-            {error && <div>{error}</div>}
-            {isPending && <div>Loading...</div>}
-        
-        
+                
             <Container className="pb-5">
                 <div className="pb-3">
                 <Row className="justify-content-sm-center">
@@ -58,9 +56,11 @@ const Home = () => {
                 </div>
 
                 <Row className="justify-content-sm-center">
-                    <Col xs={8}>
-                        {tasks && <TaskList tasks={tasks} completed={completed} />} 
-                    </Col>
+                    {isPending && <Spinner animation="border" variant="primary" className="mt-5"/>}
+                    {error && <div>{error}</div>}
+                    {tasks && <Col xs={8}>
+                        <TaskList tasks={tasks} completed={completed} />
+                    </Col>}
                 </Row>
             </Container>
             <br />

@@ -19,13 +19,7 @@ const EditTaskModal = ({show,onHide,task}) => {
     
 
 
-    // useEffect(() => {
-    //     setIsPending(isLoading);
-    //     if(task != null){
-    //         setTitle(task.title);
-    //         setBody(task.body);
-    //     } 
-    // },[task,isLoading]);
+   
 
     const handleDeleteClick = () => {
         fetch('http://localhost:8000/tasks/' + task.id,{

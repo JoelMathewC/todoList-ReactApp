@@ -1,20 +1,6 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "title": "Study GRE",
-      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, hic aspernatur! Rem facilis consequuntur doloribus, recusandae unde dolore nobis quibusdam beatae molestiae qui quia ipsam porro numquam perferendis consequatur ex?",
-      "completed": true,
-      "priority": "HIGH"
-    },
-    {
-      "title": "hello",
-      "body": "Woah123",
-      "completed": false,
-      "id": 2,
-      "priority": "HIGH"
-    },
-    {
       "title": "jfvdkj",
       "body": "cdshucdhsacj",
       "completed": true,
@@ -22,9 +8,30 @@
       "priority": "HIGH"
     },
     {
+      "title": "Hello",
+      "body": "Heyo",
+      "completed": false,
+      "priority": "HALT",
+      "id": 12
+    },
+    {
+      "title": "Trial 2",
+      "body": "Here we go",
+      "completed": true,
+      "priority": "MED",
+      "id": 13
+    },
+    {
+      "title": "hello",
+      "body": "Woah123",
+      "completed": true,
+      "id": 2,
+      "priority": "HIGH"
+    },
+    {
       "title": "New tasks",
       "body": "Woohoo",
-      "completed": false,
+      "completed": true,
       "id": 4,
       "priority": "HIGH"
     },
@@ -34,13 +41,6 @@
       "completed": false,
       "id": 5,
       "priority": "HIGH"
-    },
-    {
-      "title": "hello",
-      "body": "ola",
-      "completed": false,
-      "id": 6,
-      "priority": "LOW"
     },
     {
       "title": "think",
@@ -64,32 +64,32 @@
       "priority": "MED"
     },
     {
-      "title": "Ola la",
-      "body": "amigo",
-      "completed": false,
-      "id": 10,
-      "priority": "HIGH"
+      "title": "hello",
+      "body": "ola",
+      "completed": true,
+      "id": 6,
+      "priority": "LOW"
     },
     {
       "title": "New Form with Priority",
       "body": "Here we go",
-      "completed": false,
+      "completed": true,
       "priority": "HIGH",
       "id": 11
     },
     {
-      "title": "Hello",
-      "body": "Heyo",
-      "completed": false,
-      "priority": "HALT",
-      "id": 12
+      "title": "Ola la",
+      "body": "amigo",
+      "completed": true,
+      "id": 10,
+      "priority": "HIGH"
     },
     {
-      "title": "Trial 2",
-      "body": "Here we go",
-      "completed": true,
-      "priority": "MED",
-      "id": 13
+      "id": 1,
+      "title": "Study GRE",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, hic aspernatur! Rem facilis consequuntur doloribus, recusandae unde dolore nobis quibusdam beatae molestiae qui quia ipsam porro numquam perferendis consequatur ex?",
+      "completed": false,
+      "priority": "HIGH"
     }
   ]
 }

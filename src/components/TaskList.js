@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import EditTaskModal from './EditTaskModal';
+import Spinner from 'react-bootstrap/Spinner';
 
 
 
@@ -13,12 +14,39 @@ import EditTaskModal from './EditTaskModal';
 const TaskList = ({tasks,completed}) => {
 
     const [showEditModal,setEditModal] = useState(false);
+    const [isPending, setIsPending] = useState(false);
+    const [selectedTask, setSelectedTask] = useState(null);
+
+    function handleButton(task){
+        task.completed = !task.completed;
+        setIsPending(true);
+
+        fetch('http://localhost:8000/tasks/' + task.id,{
+            method: 'DELETE'
+        })
+        .then(() => {
+            fetch(' http://localhost:8000/tasks',{
+            method: 'POST',
+            headers: {"Content-type":"application/json"},
+            body: JSON.stringify(task)
+            }).then(() => {
+                console.log('Editing of task completed');
+                setIsPending(false);
+            });
+        }); 
+    }
+
+    function handleEdit(task){
+        setSelectedTask(task);
+        setEditModal(true);  
+    }
     
     function getPriorityColor(a){
-        switch(a){
+        if(a.completed) return 'success';
+        switch(a.priority){
             case 'HIGH': return 'danger';
             case 'MED': return 'warning';
-            case 'LOW': return 'info';
+            case 'LOW': return 'secondary';
             case 'HALT': return 'dark';
         }
     }
@@ -27,12 +55,28 @@ const TaskList = ({tasks,completed}) => {
         return task.completed === completed;
     }
 
+    function onClose(){
+        setEditModal(false);
+        setSelectedTask(null);
+    }
+
+
+
+   
+    
+
     var index = 1;
 
     return ( 
         
-            
-                <Accordion defaultActiveKey="0">
+                <div>
+                {console.log('RELOADED')}
+                {isPending && 
+                    <Row className="justify-content-sm-center">
+                    <Spinner animation="border" variant="primary" className="mt-5"/>
+                    </Row>}
+                
+                {!isPending && <Accordion defaultActiveKey="0">
                 {
                     tasks.filter(checkQuery).map((task) => (
                         <Accordion.Item eventKey={`${task.id}`}>
@@ -48,7 +92,7 @@ const TaskList = ({tasks,completed}) => {
                                                     {task.title}
                                                 </Col>
                                                 <Col xs="3" className="text-end">
-                                                    <Badge bg={getPriorityColor(task.priority)}>{task.priority}</Badge>
+                                                    <Badge bg={getPriorityColor(task)}>{task.completed?  'DONE' : task.priority}</Badge>
                                                 </Col>
                                             </Row>  
                                         </Container>                
@@ -65,11 +109,10 @@ const TaskList = ({tasks,completed}) => {
                                     </Row>
                                     <Row className="justify-content-sm-center">
                                         <Col xs="auto">
-                                            <Button variant="outline-primary">Mark Completed</Button> 
+                                            <Button variant="outline-primary" onClick={() => handleButton(task)}>{task.completed ?  'Back to Pending' : 'Mark Completed'}</Button> 
                                         </Col>
                                         <Col xs="auto">
-                                            <Button variant="outline-secondary" onClick={() => setEditModal(true)}>Edit Task</Button>
-                                            <EditTaskModal show={showEditModal} onHide={() => setEditModal(false)} task={task}/>
+                                            <Button variant="outline-secondary" onClick={() => handleEdit(task)}>Edit Task</Button>
                                         </Col>  
                                     </Row>
                                 </Container>
@@ -77,7 +120,9 @@ const TaskList = ({tasks,completed}) => {
                         </Accordion.Item>
                     ))
                 }
-                </Accordion>
+                </Accordion>}
+                {selectedTask && <EditTaskModal show={showEditModal} onHide={onClose} task={selectedTask}/>}
+                </div>
             
      );
 }
