@@ -4,26 +4,92 @@
       "id": 1,
       "title": "Study GRE",
       "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, hic aspernatur! Rem facilis consequuntur doloribus, recusandae unde dolore nobis quibusdam beatae molestiae qui quia ipsam porro numquam perferendis consequatur ex?",
-      "completed": false
+      "completed": true,
+      "priority": "HIGH"
     },
     {
       "title": "hello",
       "body": "Woah123",
       "completed": false,
-      "id": 2
+      "id": 2,
+      "priority": "HIGH"
     },
     {
       "title": "jfvdkj",
       "body": "cdshucdhsacj",
-      "completed": false,
-      "id": 3
+      "completed": true,
+      "id": 3,
+      "priority": "HIGH"
     },
     {
       "title": "New tasks",
       "body": "Woohoo",
       "completed": false,
-      "starred": false,
-      "id": 4
+      "id": 4,
+      "priority": "HIGH"
+    },
+    {
+      "title": "With Modal",
+      "body": "Worked",
+      "completed": false,
+      "id": 5,
+      "priority": "HIGH"
+    },
+    {
+      "title": "hello",
+      "body": "ola",
+      "completed": false,
+      "id": 6,
+      "priority": "LOW"
+    },
+    {
+      "title": "think",
+      "body": "you are",
+      "completed": false,
+      "id": 7,
+      "priority": "LOW"
+    },
+    {
+      "title": "suprised",
+      "body": "let's see",
+      "completed": false,
+      "id": 8,
+      "priority": "MED"
+    },
+    {
+      "title": "Sppechless",
+      "body": "here",
+      "completed": false,
+      "id": 9,
+      "priority": "MED"
+    },
+    {
+      "title": "Ola la",
+      "body": "amigo",
+      "completed": false,
+      "id": 10,
+      "priority": "HIGH"
+    },
+    {
+      "title": "New Form with Priority",
+      "body": "Here we go",
+      "completed": false,
+      "priority": "HIGH",
+      "id": 11
+    },
+    {
+      "title": "Hello",
+      "body": "Heyo",
+      "completed": false,
+      "priority": "HALT",
+      "id": 12
+    },
+    {
+      "title": "Trial 2",
+      "body": "Here we go",
+      "completed": true,
+      "priority": "MED",
+      "id": 13
     }
   ]
 }

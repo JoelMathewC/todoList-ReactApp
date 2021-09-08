@@ -24,7 +24,7 @@ const TaskDetails = () => {
                     <h2>{task.title}</h2>
                     <p>{task.body}</p>
                     <br />
-                    <Link to={`edit/${id}`}>Edit</Link>
+                    {/* <Link to={`edit/${id}`}>Edit</Link> */}
                     <button onClick={handleClick}>Delete</button>
                     <br />
                     <br />
