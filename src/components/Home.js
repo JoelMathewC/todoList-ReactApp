@@ -26,7 +26,6 @@ const Home = () => {
     function handleTabChange(val){
         val[val.length-1] === 1 ? setCompleted(false) : setCompleted(true);
     }
-
     
     return ( 
         <div>

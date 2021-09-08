@@ -28,7 +28,7 @@ const EditTaskModal = ({show,onHide,task}) => {
                 setIsPending(false);
                 props.onHide();
             });
-        });
+        },1000);
     }
 
 
@@ -95,7 +95,7 @@ const EditTaskModal = ({show,onHide,task}) => {
                         <Modal.Footer>
                             {isPending && <Button variant="primary" disabled>Loading...</Button>}
                             {!isPending && <Button variant="danger" onClick={handleDeleteClick}>Delete</Button>}
-                            { (title === '' || body === '' || priority === '') && 
+                            { (!isPending && (title === '' || body === '' || priority === '')) && 
                     <Button variant="primary" disabled>Save Changes</Button>}
                             {(!isPending && !(title === '' || body === '' || priority === '')) && <Button variant="primary" onClick={handleClick}>Save Changes</Button>}
                         </Modal.Footer>

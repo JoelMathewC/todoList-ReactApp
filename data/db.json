@@ -1,102 +1,11 @@
 {
   "tasks": [
     {
-      "title": "jfvdkj",
-      "body": "cdshucdhsacj",
-      "completed": true,
-      "id": 3,
-      "priority": "HIGH"
-    },
-    {
-      "title": "Trial 2",
-      "body": "Here we go",
-      "completed": true,
-      "priority": "MED",
-      "id": 13
-    },
-    {
-      "title": "hello",
-      "body": "Woah123",
-      "completed": true,
-      "id": 2,
-      "priority": "HIGH"
-    },
-    {
-      "title": "New tasks",
-      "body": "Woohoo",
-      "completed": true,
-      "id": 4,
-      "priority": "HIGH"
-    },
-    {
-      "title": "think",
-      "body": "you are",
-      "completed": false,
-      "id": 7,
-      "priority": "LOW"
-    },
-    {
-      "title": "hello",
-      "body": "ola",
-      "completed": true,
-      "id": 6,
-      "priority": "LOW"
-    },
-    {
-      "title": "New Form with Priority",
-      "body": "Here we go",
-      "completed": true,
-      "priority": "HIGH",
-      "id": 11
-    },
-    {
-      "title": "Ola la",
-      "body": "amigo",
-      "completed": true,
-      "id": 10,
-      "priority": "HIGH"
-    },
-    {
       "id": 1,
       "title": "Study GRE",
       "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, hic aspernatur! Rem facilis consequuntur doloribus, recusandae unde dolore nobis quibusdam beatae molestiae qui quia ipsam porro numquam perferendis consequatur ex?",
       "completed": false,
       "priority": "HIGH"
-    },
-    {
-      "title": "Trial 4",
-      "body": "Here we go",
-      "completed": false,
-      "priority": "LOW",
-      "id": 14
-    },
-    {
-      "title": "Hello",
-      "body": "Heyollo",
-      "completed": false,
-      "priority": "HALT",
-      "id": 12
-    },
-    {
-      "title": "With Modal",
-      "body": "WorkedTryyyy",
-      "completed": false,
-      "id": 5,
-      "priority": "HIGH"
-    },
-    {
-      "title": "Sppechless",
-      "body": "herescascascsc",
-      "completed": false,
-      "id": 9,
-      "priority": "MED"
-    },
-    {
-      "title": "suprised",
-      "body": "let's seeuudusvgdgv",
-      "completed": false,
-      "id": 8,
-      "priority": "MED"
     }
   ]
 }
