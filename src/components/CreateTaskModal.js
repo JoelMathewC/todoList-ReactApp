@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -12,7 +11,6 @@ const CreateTaskModal = (props) => {
     const [body,setBody] = useState('');
     const [priority, setPriority] = useState('');
     const [isPending, setIsPending] = useState(false);
-    const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,18 +18,20 @@ const CreateTaskModal = (props) => {
 
         setIsPending(true);
 
-        fetch('http://localhost:8000/tasks',{
-            method: 'POST',
-            headers: {"Content-Type":"application/json"},
-            body: JSON.stringify(task)
-        }).then(() => {
-            console.log("New Task Added");
-            setIsPending(false);
-            props.onHide();
-        });
+        setTimeout(() => {
+                fetch('http://localhost:8000/tasks',{
+                method: 'POST',
+                headers: {"Content-Type":"application/json"},
+                body: JSON.stringify(task)
+            }).then(() => {
+                console.log("New Task Added");
+                setIsPending(false);
+                props.onHide();
+            });
+        },1000); 
     }
 
-    console.log(props);
+
 
     return ( 
         <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -53,17 +53,19 @@ const CreateTaskModal = (props) => {
                     <Form.Label>Priority</Form.Label>
                     <Form.Select aria-label="Floating label select example" required value={priority}
                         onChange={e => setPriority(e.target.value)}>
-                        <option>Choose Priority</option>
+                        <option value="">Choose Priority</option>
                         <option value="HIGH">High</option>
                         <option value="MED">Medium</option>
                         <option value="LOW">Low</option>
                         <option value="HALT">Halt</option>
-                        <option value="">No Priority</option>
                     </Form.Select>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="primary" onClick={handleSubmit}>Add</Button>
+                {isPending && <Button variant="primary" disabled>Loading...</Button>}
+                { (title === '' || body === '' || priority === '') && 
+                    <Button variant="primary" disabled>Add</Button>}
+                { (!isPending && !(title === '' || body === '' || priority === '')) && <Button variant="primary" onClick={handleSubmit}>Add</Button>}
             </Modal.Footer>
         </Modal>
     );

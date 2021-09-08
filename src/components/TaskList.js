@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
@@ -48,6 +48,7 @@ const TaskList = ({tasks,completed}) => {
             case 'MED': return 'warning';
             case 'LOW': return 'secondary';
             case 'HALT': return 'dark';
+            default: return 'primary';
         }
     }
 
@@ -76,10 +77,10 @@ const TaskList = ({tasks,completed}) => {
                     <Spinner animation="border" variant="primary" className="mt-5"/>
                     </Row>}
                 
-                {!isPending && <Accordion defaultActiveKey="0">
+                {!isPending && <Accordion>
                 {
                     tasks.filter(checkQuery).map((task) => (
-                        <Accordion.Item eventKey={`${task.id}`}>
+                        <Accordion.Item eventKey={`${task.id}`} key={`${task.id}`}>
                            
                                     
                                     <Accordion.Header>
@@ -129,9 +130,4 @@ const TaskList = ({tasks,completed}) => {
  
 export default TaskList;
 
-  {/* <div key={task.id}>
-                        <Link to={`/tasks/${task.id}`}>
-                        <h2>{task.title}</h2>
-                        <p>{task.body}</p>
-                        </Link>
-                    </div> */}
+  

@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import { useState } from "react";
-import useFetch from "./hooks/useFetch";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -22,10 +20,14 @@ const EditTaskModal = ({show,onHide,task}) => {
    
 
     const handleDeleteClick = () => {
-        fetch('http://localhost:8000/tasks/' + task.id,{
-            method: 'DELETE'
-        }).then(() => {
-            props.onHide();
+        setIsPending(true);
+        setTimeout(() => {
+                fetch('http://localhost:8000/tasks/' + task.id,{
+                method: 'DELETE'
+            }).then(() => {
+                setIsPending(false);
+                props.onHide();
+            });
         });
     }
 
@@ -38,30 +40,32 @@ const EditTaskModal = ({show,onHide,task}) => {
         task.body = body;
         task.priority = priority;
 
-        fetch('http://localhost:8000/tasks/' + task.id,{
-            method: 'DELETE'
-        })
-        .then(() => {
-            fetch(' http://localhost:8000/tasks',{
-            method: 'POST',
-            headers: {"Content-type":"application/json"},
-            body: JSON.stringify(task)
-            }).then(() => {
-                console.log('Editing of task completed');
-                setIsPending(false);
-                props.onHide();
-            });
-        }); 
+        setTimeout(() => {
+            fetch('http://localhost:8000/tasks/' + task.id,{
+                method: 'DELETE'
+            })
+            .then(() => {
+                fetch(' http://localhost:8000/tasks',{
+                method: 'POST',
+                headers: {"Content-type":"application/json"},
+                body: JSON.stringify(task)
+                }).then(() => {
+                    console.log('Editing of task completed');
+                    setIsPending(false);
+                    props.onHide();
+                });
+            }); 
+        },1000);
+
+        
     }
 
     return ( 
     
             
             <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
-                {isPending && <div>Loading...</div>}
-                {!isPending && 
-                (
-                    <div>
+             
+         
                         <Modal.Header closeButton>
                             <Modal.Title id="contained-modal-title-vcenter">
                             Edit Task
@@ -80,21 +84,23 @@ const EditTaskModal = ({show,onHide,task}) => {
                                 <Form.Label>Priority</Form.Label>
                                 <Form.Select aria-label="Floating label select example" required value={priority}
                                     onChange={e => setPriority(e.target.value)}>
-                                    <option>Choose Priority</option>
-                                    <option value="HIGH">High</option>
-                                    <option value="MED">Medium</option>
-                                    <option value="LOW">Low</option>
-                                    <option value="HALT">Halt</option>
-                                    <option value="">No Priority</option>
+                                        <option value="">Choose Priority</option>
+                                        <option value="HIGH">High</option>
+                                        <option value="MED">Medium</option>
+                                        <option value="LOW">Low</option>
+                                        <option value="HALT">Halt</option>
                                 </Form.Select>
                             </Form>
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="danger" onClick={handleDeleteClick}>Delete</Button>
-                            <Button variant="primary" onClick={handleClick}>Save Changes</Button>
+                            {isPending && <Button variant="primary" disabled>Loading...</Button>}
+                            {!isPending && <Button variant="danger" onClick={handleDeleteClick}>Delete</Button>}
+                            { (title === '' || body === '' || priority === '') && 
+                    <Button variant="primary" disabled>Save Changes</Button>}
+                            {(!isPending && !(title === '' || body === '' || priority === '')) && <Button variant="primary" onClick={handleClick}>Save Changes</Button>}
                         </Modal.Footer>
-                    </div>
-                )}
+            
+                
             
         </Modal>
 
